@@ -42,6 +42,50 @@ $(document).ready(function () {
       },
 
       // succes code
+      //   success: function (response) {
+      //     var predictions = response.predictions;
+      //     var resultContainer = document.getElementById("resultContainer");
+      //     var resultHeading = document.getElementById("resultHeading");
+      //     resultContainer.innerHTML = "";
+      //     resultHeading.innerHTML = "";
+
+      //     if (predictions.length > 0) {
+      //       var maxProbability = 0;
+      //       var predictedTag = "";
+      //       for (var i = 0; i < predictions.length; i++) {
+      //         var prediction = predictions[i];
+      //         if (prediction.probability > maxProbability) {
+      //           maxProbability = prediction.probability;
+      //           predictedTag = prediction.tagName;
+      //         }
+      //       }
+
+      //       var result = '<div class="result-container">';
+      //       result += '<div class="prediction">';
+      //       result += '<p class="tag-name">' + predictedTag + "</p>";
+      //       result += '<div class="percentage-bar">';
+      //       result +=
+      //         '<div class="percentage" style="width: ' +
+      //         maxProbability * 100 +
+      //         '%;"></div>';
+      //       result += "</div>";
+      //       result +=
+      //         '<p class="probability">' +
+      //         (maxProbability * 100).toFixed(2) +
+      //         "%</p>";
+      //       result += "</div>";
+      //       result += "</div>";
+
+      //       resultContainer.innerHTML = result;
+
+      //       resultHeading.innerHTML =
+      //         '<h2 class="result-heading">This sign means the alphabet ' +
+      //         predictedTag +
+      //         "</h2>";
+      //     } else {
+      //       resultContainer.innerHTML = "<p>No predictions found.</p>";
+      //     }
+      //   },
       success: function (response) {
         var predictions = response.predictions;
         var resultContainer = document.getElementById("resultContainer");
@@ -54,6 +98,12 @@ $(document).ready(function () {
           var predictedTag = "";
           for (var i = 0; i < predictions.length; i++) {
             var prediction = predictions[i];
+            console.log(
+              prediction.tagName +
+                ": " +
+                (prediction.probability * 100).toFixed(2) +
+                "%"
+            ); // Log tag name and its probability
             if (prediction.probability > maxProbability) {
               maxProbability = prediction.probability;
               predictedTag = prediction.tagName;
