@@ -22,7 +22,9 @@ $(document).ready(function () {
   });
 
   captureButton.addEventListener("click", function () {
-    context.drawImage(video, 0, 0, 500, 500);
+    // context.drawImage(video, 0, 0, 500, 500);
+    context.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
+
     canvas.toBlob(function (blob) {
       var formData = new FormData();
       formData.append("image", blob);
