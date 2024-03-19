@@ -90,6 +90,7 @@ $(document).ready(function () {
       //     }
       //   },
       success: function (response) {
+        console.log(response);
         var predictions = response.predictions;
         var resultContainer = document.getElementById("resultContainer");
         var resultHeading = document.getElementById("resultHeading");
